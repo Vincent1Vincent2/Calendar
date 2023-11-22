@@ -16,6 +16,7 @@ main {
   display: flex;
   height: calc(100svh - 100px);
   background-color: aliceblue;
+  justify-content: space-around;
 }
 
 aside {
@@ -29,10 +30,37 @@ aside {
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(5, 1fr);
   gap: 1rem;
+  margin: 13px 0;
 }
 
 .day {
   width: 100px;
   height: 100px;
   background-color: rgb(0, 0, 0);
+
+}
+
+.currentMonthContainer {
+  display: flex;
+  font-size: 2rem;
+}
+
+#currentMonth {
+  margin: 0 20px;
+}
+
+#tosoContainer{
+  text-align: center;
+}
+
+.todoTitle {
+  margin-top: 20px;
+  font-size: 2rem;
+}
+
+#todoDetail {
+  text-align: center;
+  border: 2px solid #000000;
+	width: 300px;
+	height: 100px;
 }
