@@ -1,66 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 header {
-  height: 100px;
-  width: 100%;
+  height: 140px;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-main {
-  display: flex;
-  height: calc(100svh - 100px);
-  background-color: aliceblue;
-  justify-content: space-around;
-}
-
-aside {
-  height: calc(100svh - 100px);
-  background-color: antiquewhite;
-  width: 30%;
-}
-
-.daysContainer {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  flex-direction: column;
+  font-size: 3rem;
   gap: 1rem;
-  margin: 13px 0;
-}
-
-.day {
-  width: 100px;
-  height: 100px;
-  background-color: rgb(0, 0, 0);
-
+  padding: 20px;
+  background-color: rgb(84, 114, 139);
+  border-radius: 80px;
+  margin: 2rem;
+  border: solid;
 }
 
 .currentMonthContainer {
   display: flex;
-  font-size: 2rem;
+  gap: 5rem;
 }
 
 #currentMonth {
-  margin: 0 20px;
+  padding: 0 5rem;
 }
 
-#tosoContainer{
+#monthBack {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#monthForward {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.welcomeSegment {
   text-align: center;
+  font-size: 2.8rem;
+  padding: 40px 20px;
+  border-top-right-radius: 55px;
+  border-top-left-radius: 55px;
+  background-color: rgb(230, 230, 107);
+}
+
+.activeTodo {
+  list-style: none;
 }
 
 .todoTitle {
-  margin-top: 20px;
   font-size: 2rem;
 }
 
-#todoDetail {
-  text-align: center;
-  border: 2px solid #000000;
-	width: 300px;
-	height: 100px;
+.todoDate {
+  font-size: 1.2rem;
 }
+
+.todoBtns {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 26px;
+  gap: 1rem;
+}
+
+.addNewTodo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  padding: 50px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.todoText {
+  width: 400px;
+  height: 120px;
+  font-size: 1.5rem;
+  border-bottom: none;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+}
+
+.chooseTodoDate {
+  height: 50px;
+  text-align: center;
+  font-size: 1rem;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+}
+
+.addTodo {
+  font-size: 26px;
+  border: solid 1px;
+  border-radius: 55px;
+  padding: 15px 25px;
+  background-color: white;
+}
+
+.addTodo:hover {
+  background-color: rgb(202, 202, 202);
+}
+
+main {
+  height: calc(95svh - 210px);
+  display: flex;
+}
+
+aside {
+  height: calc(95svh - 250px);
+  width: 30%;
+  border: solid;
+  border-radius: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 2rem;
+}
+
+.activeTodoContainer {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.todoContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calenderContainer {
+  width: calc(100% - 30%);
+  margin: 1rem 2rem;
+  border: solid;
+  border-radius: 55px;
+}
+
+.daysName {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  list-style: none;
+  font-size: 2rem;
+  padding: 2rem;
+  background-color: rgb(179, 82, 82);
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.daysName li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  padding: 0px 20px;
+}
+
+.dateContainer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  margin: 1rem 2rem;
+  font-size: 3rem;
+  border-radius: 100%;
+}
+.date:hover {
+  background-color: aliceblue;
+}
+
+
