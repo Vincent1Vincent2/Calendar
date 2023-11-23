@@ -32,35 +32,40 @@
         </div>
         <div class="todoContainer">
           <div class="activeTodoContainer">
-            <ul class="activeTodo" data-cy="todo-list">
+            <ul class="activeTodo" data-cy="todo-list"></ul>
+
+            <!-- <ul class="activeTodo" data-cy="todo-list">
               <li class="todoTitle" data-cy="calendar-cell-todos">
                 Meeting with jonas
               </li>
               <li class="todoDate" data-cy="calendar-cell-todos">2023-11-23</li>
-            </ul>
+            </ul> -->
 
             <div class="todoBtns">
-              <button data-cy="edit-todo-button">
+              <!-- <button data-cy="edit-todo-button">
                 <i class="fa-solid fa-pen" style="font-size: 26px"></i>
               </button>
               <button data-cy="delete-todo-button">
                 <i style="font-size: 26px" class="fa-solid fa-trash"></i>
-              </button>
+              </button> -->
             </div>
           </div>
           <form class="addNewTodo">
             <div class="inputContainer">
-              <textarea
+              <input
                 class="todoText"
                 data-cy="todo-title-input"
                 type="text"
                 name="message"
               >
-              </textarea>
+              </input>
               <input
                 class="chooseTodoDate"
                 data-cy="todo-date-input"
                 type="date"
+                value="2018-07-22" 
+                min="2018-01-01" 
+                max="2025-12-31"
               />
             </div>
             <button class="addTodo" data-cy="save-todo-button">ADD</button>
@@ -91,5 +96,7 @@
       </div>
     </main>
     <script src="calender.js"></script>
+    <script src="todos.js"></script>
+
   </body>
 </html>
