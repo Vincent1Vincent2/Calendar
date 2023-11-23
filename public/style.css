@@ -7,7 +7,7 @@
 }
 
 header {
-  height: 140px;
+  height: 80px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -19,6 +19,7 @@ header {
   background-color: rgb(84, 114, 139);
   border-radius: 80px;
   margin: 2rem;
+  margin-bottom: 1rem;
   border: solid;
 }
 
@@ -43,8 +44,8 @@ header {
 
 .welcomeSegment {
   text-align: center;
-  font-size: 2.8rem;
-  padding: 40px 20px;
+  font-size: 2rem;
+  padding: 40px 59px;
   border-top-right-radius: 55px;
   border-top-left-radius: 55px;
   background-color: rgb(230, 230, 107);
@@ -55,11 +56,11 @@ header {
 }
 
 .todoTitle {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .todoDate {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .todoBtns {
@@ -83,9 +84,9 @@ header {
 }
 
 .todoText {
-  width: 400px;
+  width: 350px;
   height: 120px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   border-bottom: none;
   border-top-left-radius: 35px;
   border-top-right-radius: 35px;
@@ -94,7 +95,7 @@ header {
 .chooseTodoDate {
   height: 50px;
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.8rem;
   border-bottom-left-radius: 35px;
   border-bottom-right-radius: 35px;
 }
@@ -105,6 +106,7 @@ header {
   border-radius: 55px;
   padding: 15px 25px;
   background-color: white;
+  font-size: 1rem;
 }
 
 .addTodo:hover {
@@ -112,12 +114,12 @@ header {
 }
 
 main {
-  height: calc(95svh - 210px);
+  height: calc(100svh - 190px);
   display: flex;
 }
 
 aside {
-  height: calc(95svh - 250px);
+  height: calc(100svh - 228px);
   width: 30%;
   border: solid;
   border-radius: 55px;
@@ -187,15 +189,13 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100px;
-  padding: 20px;
-  margin: 1rem 2rem;
-  font-size: 3rem;
+  width: 30px;
+  height: 30px;
+  padding: 20px 25px;
+  margin: 1rem 2.5rem;
+  font-size: 2rem;
   border-radius: 100%;
 }
 .date:hover {
   background-color: aliceblue;
 }
-
-
