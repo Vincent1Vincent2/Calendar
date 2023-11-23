@@ -26,6 +26,9 @@ function displayCurrentMonth() {
   ];
   const currentMonthElement = document.getElementById("currentMonth");
   currentMonthElement.textContent = months[currentMonth] + " " + currentYear;
+
+  //Function to update the days when going back or forward in the months
+  generateCalendar(currentYear, currentMonth);
 }
 
 displayCurrentMonth();
@@ -52,3 +55,45 @@ monthForward.addEventListener("click", function () {
   }
   displayCurrentMonth();
 });
+
+//We declare the current date in a variable
+const today = new Date();
+
+//Here we get the days in a month
+function daysInMonth(month, year) {
+  return new Date(year, month + 1, 0).getDate();
+}
+
+//Function to get the starting day of the month (1 = monday)
+function getFirstDayOfMonth(month, year) {
+  return new Date(year, month, 1).getDay();
+}
+
+//Function to generate the numbers/days in calendar
+function generateCalendar(year, month) {
+  const days = daysInMonth(month, year);
+  const dateContainer = document.getElementById("dateContainer");
+  const firstDay = getFirstDayOfMonth(month, year);
+
+  //Clear current dates
+  dateContainer.innerHTML = "";
+
+  //Add empty li elements befor the first day and remove hover effect
+  for (let i = 0; i < firstDay; i++) {
+    const emptyLi = document.createElement("li");
+    emptyLi.className = "date empty";
+    emptyLi.style.pointerEvents = "none";
+    dateContainer.appendChild(emptyLi);
+  }
+
+  for (let i = 1; i <= days; i++) {
+    const li = document.createElement("li");
+    li.className = "date";
+    li.dataset.cy = "calendar-cell-date";
+    li.textContent = i;
+    dateContainer.appendChild(li);
+  }
+}
+
+//Display current months calendar
+generateCalendar(today.getFullYear(), today.getMonth());
