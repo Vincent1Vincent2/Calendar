@@ -4,48 +4,41 @@
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 
 header {
-  height: 80px;
+  height: 15svh;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-size: 3rem;
-  gap: 1rem;
-  padding: 20px;
+  font-size: clamp(1.5rem, -0.375rem + 6vw, 3rem);
   background-color: rgb(84, 114, 139);
   border-radius: 80px;
-  margin: 2rem;
+  margin: 0.8rem;
   margin-bottom: 1rem;
-  border: solid;
+  border: solid 2px;
 }
 
 .currentMonthContainer {
   display: flex;
-  gap: 5rem;
-}
-
-#currentMonth {
-  padding: 0 5rem;
+  gap: 2rem;
 }
 
 #monthBack {
   cursor: pointer;
-  font-weight: bold;
 }
 
 #monthForward {
   cursor: pointer;
-  font-weight: bold;
 }
 
 .welcomeSegment {
   text-align: center;
-  font-size: 2rem;
-  padding: 40px 59px;
+  font-size: clamp(1.5rem, -2.5rem + 5vw, 2.5rem);
+  padding: 25px 50px;
   border-top-right-radius: 55px;
   border-top-left-radius: 55px;
   background-color: rgb(230, 230, 107);
@@ -53,6 +46,9 @@ header {
 
 .activeTodo {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .todoTitle {
@@ -71,35 +67,40 @@ header {
 }
 
 .addNewTodo {
-  /* display: flex; */
-  flex-direction: row;
+  display: flex;
   align-items: center;
-  gap: 2rem;
-  /* padding: 50px; */
-  text-align: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 50px 0px;
 }
 
 .inputContainer {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .todoText {
-  width: 100%;
-  height: 120px;
   font-size: 1.3rem;
   border-bottom: none;
+  text-align: center;
   border-top-left-radius: 35px;
   border-top-right-radius: 35px;
+  height: 120px;
+  resize: none;
+  padding: 10px 20px;
 }
 
 .chooseTodoDate {
+  padding: 0px 10px;
   height: 50px;
   text-align: center;
   font-size: 0.8rem;
+  border: solid 1px;
+  border-top: none;
   border-bottom-left-radius: 35px;
   border-bottom-right-radius: 35px;
-  width: 100%;
 }
 
 .addTodo {
@@ -109,8 +110,6 @@ header {
   padding: 15px 25px;
   background-color: white;
   font-size: 1rem;
-  margin: 10px 0;
-  justify-content: center;
 }
 
 .addTodo:hover {
@@ -120,25 +119,27 @@ header {
 main {
   height: calc(100svh - 190px);
   display: flex;
-  width: 100vh;
+  gap: 1rem;
+  margin: 0.8em;
 }
 
 aside {
-  height: calc(100svh - 228px);
+  height: calc(100svh - 190px);
   width: 30%;
-  border: solid;
+  border: solid 2px;
   border-radius: 55px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin: 1rem 2rem;
 }
 
 .activeTodoContainer {
   display: flex;
   align-items: center;
-  padding: 20px;
+  justify-content: space-between;
+  padding: 40px;
+  width: 100%;
 }
 
 button {
@@ -147,107 +148,19 @@ button {
   cursor: pointer;
 }
 
-.addTodo {
-  float: right;
-  cursor: pointer;
-  border: none;
-  border-radius: 20px;
-  font-size: 1rem;
-  box-shadow: 5px 5px 7px rgba(0,0,0,0.25), 
-  inset 2px 2px 5px rgba(0,0,0,0.5), 
-  inset -3px -3px 5px rgba(0,0,0,0.5);
-}
-
-.activeTodoContainer li {
-  position: relative;
-  width: calc(100% - 40px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #fff;
-  margin: 15px 0;
-  padding: 10px 10px 10px 45px;
-  min-height: 45px;
-  cursor: pointer;
-  color: #000000;
-}
-
-.activeTodoContainer li i {
-  position: absolute;
-  right: -40px;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 5px 5px 7px rgba(0,0,0,0.25), 
-  inset 2px 2px 5px rgba(225,255,255,0.5), 
-  inset -3px -3px 5px rgba(0,0,0,0.5);
-}
-
-.activeTodoContainer li i::before {
-  content: '';
-  position: absolute;
-  width: 15px;
-  height: 2px;
-  background-color: #000000;
-  transform: rotate(-45deg);
-}
-
-.activeTodoContainer li i::after {
-  content: '';
-  position: absolute;
-  width: 15px;
-  height: 2px;
-  background-color: #000000;
-  transform: rotate(45deg);
-}
-
-.activeTodoContainer li::before {
-  content: '';
-  position: absolute;
-  left: 8px;
-  width: 30px;
-  height: 30px;
-  background: fff;
-  border: 1px solid;
-  border-radius: 50%;
-}
-
-.activeTodoContainer li.done {
-  background: fff;
-  
-}
-
-/* Checkbox */
-.activeTodoContainer li.done::after {
-  content: '';
-  position: absolute;
-  left: 16px;
-  width: 12px;
-  height: 6px;
-  border-left: 3px solid green;
-  border-bottom: 3px solid green;
-  transform: rotate(315deg);
-}
-
 .todoContainer {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  max-width: 100%;
 }
 
 .calenderContainer {
-  /* width: calc(100% - 30%); */
-  margin: 1rem 2rem;
-  border: solid;
+  width: calc(100% - 30%);
+  border: solid 2px;
   border-radius: 55px;
+  height: calc(88vh);
 }
 
 .daysName {
@@ -255,8 +168,7 @@ button {
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(1, 1fr);
   list-style: none;
-  font-size: 2rem;
-  padding: 2rem;
+  padding: 2rem 0rem;
   background-color: rgb(179, 82, 82);
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
@@ -266,8 +178,9 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 120px;
-  padding: 0px 20px;
+  font-size: clamp(1rem, -2.2625rem + 5vw, 2.5rem);
+  padding: 0.5rem;
+  font-weight: bold;
 }
 
 .dateContainer {
@@ -282,72 +195,57 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
-  padding: 20px 25px;
-  margin: 1rem 2.5rem;
-  font-size: 2rem;
-  border-radius: 100%;
+  padding: 1.5rem 0.5rem;
+  margin-top: 0.5rem;
+
+  font-size: clamp(1.5rem, -2.2625rem + 5vw, 2.5rem);
+  border-radius: 9rem;
 }
 .date:hover {
   background-color: aliceblue;
 }
 
-@media screen and (max-width: 767px) {
-  header {
-    height: 30px;
-  }
-
-  .currentMonthContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    gap: 0;
-  }
-
-  #currentMonth {
-    font-size: 18px;
-  }
-
-  #monthBack,
-  #monthForward {
-    font-size: 20px;
-  }
-
+@media only screen and (max-width: 1025px) {
   main {
+    height: calc(100svh - 190px);
     display: flex;
+    flex-direction: column-reverse;
+    justify-content: start;
+  }
+
+  .addNewTodo {
     flex-direction: column;
+  }
+
+  .todoContainer {
     width: 100%;
+    height: 100svh;
+  }
+
+  .inputContainer {
+    width: 300px;
+  }
+
+  .addNewTodo {
+    justify-content: end;
+    padding: 20px;
+  }
+
+  aside {
+    height: 100svh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    align-items: normal;
   }
 
   .calenderContainer {
-    /* width: calc(100% - 30%); */
-    margin: 1rem;
-    border: solid;
-    border-radius: 20px;
-    order: -1;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
 }
 
-.daysName {
-  font-size: 1rem;
-  padding: 1rem;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-}
-
-aside {
-    height:auto;
-    width: auto;
-}
-
-.welcomeSegment {
-  text-align: center;
-  font-size: 1.1rem;
-}
-
-.todoTitle {
-  font-size: 1rem;
-}
-
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 }
