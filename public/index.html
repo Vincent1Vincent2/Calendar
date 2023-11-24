@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -25,9 +26,8 @@
     <main>
       <aside>
         <div data-cy="welcome-segment">
-          <h2 class="welcomeSegment">
-            Welcome, today is:
-            <span>Thursday</span>
+          <h2 id="welcomeSegment" class="welcomeSegment">
+            Friday 2022 9 sep 12:20
           </h2>
         </div>
         <div class="todoContainer">
@@ -57,14 +57,14 @@
                 data-cy="todo-title-input"
                 type="text"
                 name="message"
-              >
-              </input>
+              />
+
               <input
                 class="chooseTodoDate"
                 data-cy="todo-date-input"
                 type="date"
-                value="2018-07-22" 
-                min="2018-01-01" 
+                value="2018-07-22"
+                min="2018-01-01"
                 max="2025-12-31"
               />
             </div>
@@ -82,7 +82,7 @@
           <li data-cy="calendar-cell">Fri</li>
           <li data-cy="calendar-cell">Sat</li>
         </ul>
-        <ul class="dateContainer" data-cy="calendar-body">
+        <ul id="dateContainer" class="dateContainer" data-cy="calendar-body">
           <li class="date" data-cy="calendar-cell-date">1</li>
           <li class="date" data-cy="calendar-cell-date">1</li>
           <li class="date" data-cy="calendar-cell-date">1</li>
@@ -97,6 +97,5 @@
     </main>
     <script src="calender.js"></script>
     <script src="todos.js"></script>
-
   </body>
 </html>
