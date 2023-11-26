@@ -159,7 +159,7 @@ button {
     inset -3px -3px 5px rgba(0,0,0,0.5); */
 }
 
-.activeTodoContainer li {
+/* .activeTodoContainer li {
   position: relative;
   width: calc(100% - 40px);
   display: flex;
@@ -170,9 +170,9 @@ button {
   padding: 10px 10px 10px 45px; 
   min-height: 45px;
   color: black;
-}
+} */
 
-.activeTodoContainer li i {
+/* .activeTodoContainer li i {
   position: absolute;
   right: -40px;
   width: 30px;
@@ -183,9 +183,9 @@ button {
   border: 1px solid;
   background: #fff;
   border-radius: 50%;
-  /* box-shadow: 5px 5px 7px rgba(0,0,0,0.25), 
-  inset 2px 2vscode-file://vscode-app/c:/Users/danie/AppData/Local/Programs/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.htmlpx 5px rgba(225,255,255,0.5), 
-  inset -3px -3px 5px rgba(0,0,0,0.5); */
+  box-shadow: 5px 5px 7px rgba(0,0,0,0.25), 
+  inset 2px 2px 5px rgba(225,255,255,0.5), 
+  inset -3px -3px 5px rgba(0,0,0,0.5);
 }
 
 .activeTodoContainer li i::before {
@@ -223,7 +223,7 @@ content: '';
 }
 
 /* Checkbox */
-.activeTodoContainer li.done::after {
+/* .activeTodoContainer li.done::after {
   content: '';
   position: absolute;
   left: 16px;
@@ -232,7 +232,7 @@ content: '';
   border-left: 3px solid green;
   border-bottom: 3px solid green;
   transform: rotate(315deg);
-}
+}  */
 
 .todoContainer {
   height: 100%;
