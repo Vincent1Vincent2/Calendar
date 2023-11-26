@@ -84,7 +84,9 @@ header {
 .todoText {
   font-size: 1.3rem;
   border-bottom: none;
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
   border-top-left-radius: 35px;
   border-top-right-radius: 35px;
   height: 120px;
@@ -154,85 +156,42 @@ button {
   border: 1px solid;
   border-radius: 20px;
   font-size: 1rem;
-  /* box-shadow: 5px 5px 7px rgba(0,0,0,0.25), 
-    inset 2px 2px 5px rgba(0,0,0,0.5), 
-    inset -3px -3px 5px rgba(0,0,0,0.5); */
 }
 
-/* .activeTodoContainer li {
-  position: relative;
-  width: calc(100% - 40px);
+.addNewTodo {
   display: flex;
-  align-items: center;
+}
+
+.content .text {
+  border: none;
+}
+
+.activeTodoContainer .task {
+  display: flex;
   justify-content: space-between;
-  background: #fff;
-  margin: 15px 0;
-  padding: 10px 10px 10px 45px; 
-  min-height: 45px;
-  color: black;
-} */
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
 
-/* .activeTodoContainer li i {
-  position: absolute;
-  right: -40px;
-  width: 30px;
-  height: 30px;
+.activeTodoContainer .task .content {
+  flex: 1 1 0%;
+
+}
+
+.activeTodoContainer .task .content .text {
+  width: 100%;
+  display: block;
+}
+
+.activeTodoContainer .task .actions {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 5px 5px 7px rgba(0,0,0,0.25), 
-  inset 2px 2px 5px rgba(225,255,255,0.5), 
-  inset -3px -3px 5px rgba(0,0,0,0.5);
 }
 
-.activeTodoContainer li i::before {
-  content: '';
-  position: absolute;
-  width: 15px;
-  height: 2px;
-  background-color: #000000;
-  transform: rotate(-45deg);
+.task .actions button {
+cursor: pointer;
+margin: 0 0.5rem;
+font-weight: 700;
 }
-
-.activeTodoContainer li i::after {
-content: '';
-    position: absolute;
-    width: 15px;
-    height: 2px;
-    background-color: #000000;
-    transform: rotate(45deg);
-}
-
-.activeTodoContainer li::before {
-  content: '';
-  position: absolute;
-  left: 8px;
-  width: 30px;
-  height: 30px;
-  background: fff;
-  border: 1px solid;
-  border-radius: 50%;
-}
-
-.activeTodoContainer li.done {
-  background: fff;
-  
-}
-
-/* Checkbox */
-/* .activeTodoContainer li.done::after {
-  content: '';
-  position: absolute;
-  left: 16px;
-  width: 12px;
-  height: 6px;
-  border-left: 3px solid green;
-  border-bottom: 3px solid green;
-  transform: rotate(315deg);
-}  */
 
 .todoContainer {
   height: 100%;
