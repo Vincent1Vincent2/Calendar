@@ -64,7 +64,7 @@ window.addEventListener('load', () => {
         taskEditElement.addEventListener('click', () => {
             // Toggle between editing and saving mode
             if(taskEditElement.innerText.toLowerCase() == 'edit') {
-                taskInputElement.removeAtibute('readonly'); // Allows editing
+                taskInputElement.removeAttribute('readonly'); // Allows editing
                 taskInputElement.focus(); // Set focus to the input
                 taskEditElement.innerText = 'Save'; // Change button text to "Save"
             } else {
