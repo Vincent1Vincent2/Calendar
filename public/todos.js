@@ -40,11 +40,13 @@ window.addEventListener('load', () => {
         // Create an edit-button
         const taskEditElement = document.createElement('button');
         taskEditElement.classList.add('edit');
+        taskEditElement.setAttribute('data-cy', 'edit-todo-button');
         taskEditElement.innerHTML = 'Edit';
 
         // Create an delete-button
         const taskDeleteElement = document.createElement('button');
         taskDeleteElement.classList.add('delete');
+        taskDeleteElement.setAttribute('data-cy', 'delete-todo-button');
         taskDeleteElement.innerHTML = 'Delete';
 
         // Append edit and delete buttons to the actions element
