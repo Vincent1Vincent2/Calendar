@@ -89,10 +89,20 @@ function generateCalendar(year, month) {
   for (let i = 1; i <= days; i++) {
     const li = document.createElement("li");
     li.className = "date";
+
+    // //Added class for hover effect on page load
+    if (year === currentYear && month === currentMonth && i === new Date().getDate()) {
+      li.classList.add("current-day");
+    }
+    if (year === currentYear && month === currentMonth && i === new Date().getDate()) {
+      li.classList.add("initial-hover");
+    }
+
     li.dataset.cy = "calendar-cell-date";
     li.textContent = i;
     dateContainer.appendChild(li);
   }
+
 }
 
 //Display current months calendar

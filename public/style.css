@@ -160,7 +160,6 @@ button {
   width: calc(100% - 30%);
   border: solid 2px;
   border-radius: 55px;
-  height: calc(88vh);
 }
 
 .daysName {
@@ -201,8 +200,29 @@ button {
   font-size: clamp(1.5rem, -2.2625rem + 5vw, 2.5rem);
   border-radius: 9rem;
 }
+
 .date:hover {
-  background-color: aliceblue;
+  background-color: pink;
+}
+
+.current-day {
+  background-color: #aaf;
+}
+
+/* .current-day:hover {
+  background-color: #aaf; 
+}  */
+
+/* .next-day {
+  background-color: #bbf;
+} */
+
+/* .next-day:hover {
+  background-color: red;
+} */
+
+/* .initial-hover {
+  background-color: bluevit;
 }
 
 @media only screen and (max-width: 1025px) {
