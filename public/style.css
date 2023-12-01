@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
 
@@ -209,19 +209,19 @@ button {
   background-color: #aaf;
 }
 
-/* .current-day:hover {
-  background-color: #aaf; 
-}  */
+.current-day:hover {
+  background-color: #aaf;
+}
 
-/* .next-day {
+.next-day {
   background-color: #bbf;
-} */
+}
 
-/* .next-day:hover {
+.next-day:hover {
   background-color: red;
-} */
+}
 
-/* .initial-hover {
+.initial-hover {
   background-color: bluevit;
 }
 
