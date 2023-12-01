@@ -84,7 +84,9 @@ header {
 .todoText {
   font-size: 1.3rem;
   border-bottom: none;
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
   border-top-left-radius: 35px;
   border-top-right-radius: 35px;
   height: 120px;
@@ -135,7 +137,7 @@ aside {
 }
 
 .activeTodoContainer {
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: space-between;
   padding: 40px;
@@ -146,6 +148,49 @@ button {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+.addTodo {
+  float: right;
+  cursor: pointer;
+  border: 1px solid;
+  border-radius: 20px;
+  font-size: 1rem;
+}
+
+.addNewTodo {
+  display: flex;
+}
+
+.content .text {
+  border: none;
+}
+
+.activeTodoContainer .task {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.activeTodoContainer .task .content {
+  flex: 1 1 0%;
+
+}
+
+.activeTodoContainer .task .content .text {
+  width: 100%;
+  display: block;
+}
+
+.activeTodoContainer .task .actions {
+  display: flex;
+}
+
+.task .actions button {
+cursor: pointer;
+margin: 0 0.5rem;
+font-weight: 700;
 }
 
 .todoContainer {
