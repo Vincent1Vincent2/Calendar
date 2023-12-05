@@ -1,5 +1,4 @@
 const addTodoBtn = document.getElementById('addTodo');
-const deleteTodoBtn = document.getElementById('deleteBtn');
 // Execute the following code when the window has finished loading
 function initTodos() {
   createTodoStructure();
@@ -19,20 +18,15 @@ function createTodoStructure() {
     const editTodoBtn = document.createElement('button');
 
     todoContainer.setAttribute('data-cy', 'todo-list');
-    todoContainer.id = 'todoContainer';
-    todoTitleElement.classList.add('todoTitle');
-    todoTitleElement.id = 'todoTitle';
+    todoTitleElement.classList.add = 'todoTitle';
     todoDateElement.classList.add('todoDate');
-    todoDateElement.id = 'todoDate';
     todoBtnContainer.classList.add('todoBtns');
 
     deleteTodoBtn.setAttribute('data-cy', 'delete-todo-button');
     deleteTodoBtn.textContent = 'Delete';
-    deleteTodoBtn.id = 'deleteBtn';
 
     editTodoBtn.setAttribute('data-cy', 'edit-todo-button');
     editTodoBtn.textContent = 'Edit';
-    editTodoBtn.id = 'editBtn';
 
     let title = todos[i]['title'];
     let date = todos[i]['date'];
@@ -46,6 +40,12 @@ function createTodoStructure() {
     todoContainer.appendChild(todoBtnContainer);
     todoBtnContainer.appendChild(deleteTodoBtn);
     todoBtnContainer.appendChild(editTodoBtn);
+
+    deleteTodoBtn.addEventListener('click', function () {
+      todos.splice(i, 1);
+      createTodoStructure();
+    });
+    editTodoBtn.addEventListener('click', function () {});
   }
 }
 

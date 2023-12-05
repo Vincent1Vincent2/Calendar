@@ -12,7 +12,6 @@ let todos = [
 ];
 
 function main() {
-  console.log('Hi students!');
   // load from LS
   initTodos();
   initWelcome();
