@@ -6,13 +6,12 @@ let todos = [
     date: '2023-12-05',
   },
   {
-    title: 'sleep',
-    date: '2023-12-07',
+    title: 'Cykla',
+    date: '2023-11-05',
   },
 ];
 
 function main() {
-  console.log('Hi students!');
   // load from LS
   initTodos();
   initWelcome();

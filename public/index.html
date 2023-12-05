@@ -33,31 +33,33 @@
           <h2 id="welcomeSegment" class="welcomeSegment">Welcome</h2>
         </div>
         <div class="todoContainer">
-          <div class="activeTodoContainer">
+          <div id="activeTodoContainer" class="activeTodoContainer">
             <ul class="activeTodo" data-cy="todo-list"></ul>
           </div>
         </div>
-        <form class="addNewTodo">
-          <div class="inputContainer">
-            <input
-              class="todoText"
-              data-cy="todo-title-input"
-              type="text"
-              name="message"
-            />
 
-            <input
-              id="chooseTodoDate"
-              class="chooseTodoDate"
-              data-cy="todo-date-input"
-              type="date"
-              value="2018-07-22"
-              min="2018-01-01"
-              max="2025-12-31"
-            />
-          </div>
-          <button class="addTodo" data-cy="save-todo-button">ADD</button>
-        </form>
+        <div class="inputContainer">
+          <input
+            id="todoTitleInput"
+            class="todoText"
+            data-cy="todo-title-input"
+            type="text"
+            name="message"
+          />
+
+          <input
+            id="chooseTodoDate"
+            class="chooseTodoDate"
+            data-cy="todo-date-input"
+            type="date"
+            value="2018-07-22"
+            min="2018-01-01"
+            max="2025-12-31"
+          />
+        </div>
+        <button id="addTodo" class="addTodo" data-cy="save-todo-button">
+          ADD
+        </button>
       </aside>
       <div class="calenderContainer">
         <ul class="daysName">
