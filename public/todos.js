@@ -39,15 +39,27 @@ function createTodoStructure() {
     todoContainer.appendChild(todoDateElement);
     todoContainer.appendChild(todoBtnContainer);
     todoBtnContainer.appendChild(deleteTodoBtn);
-    todoBtnContainer.appendChild(editTodoBtn);
+    todoTitleElement.appendChild(editTodoBtn);
 
     deleteTodoBtn.addEventListener('click', function () {
       todos.splice(i, 1);
       createTodoStructure();
     });
-    editTodoBtn.addEventListener('click', function () {});
+    editTodoBtn.addEventListener('click', function () {
+        editTodoTitle(i, todoTitleElement);
+    });
   }
 }
+
+// Funktion redigera titeln todo
+function editTodoTitle(index, titleElement) {
+    const newTitle = prompt('Edit Todo Title:', titleElement.textContent); // Pop-up prompt med ny titel, använder den nuvarande titels dom standardvärd
+    // Kontrollera om användaren klickat på cancel eller om ny titel är empty
+    if (newTitle !== null && newTitle.trim() !== '') {
+      titleElement.textContent = newTitle; // Uppdaterar textinnehållet i todo med nya titeln
+      todos[index].title = newTitle; // Uppdaterar arrayen med nya titeln på rätt plats
+    }
+  }
 
 addTodoBtn.addEventListener('click', function () {
   addTodo();
@@ -64,6 +76,9 @@ function addTodo() {
   };
   todos.push(newTodo);
   createTodoStructure();
+
+//   todoTitleInput.value = '';
+
 }
 
 // Add an event listener to the form to handle todo submission
