@@ -9,6 +9,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
+    <script defer src="main.js"></script>
+    <script defer src="todos.js"></script>
+    <script defer src="welcome.js"></script>
+    <script defer src="calender.js"></script>
     <title>Calender</title>
   </head>
   <body>
@@ -26,50 +30,46 @@
     <main>
       <aside>
         <div data-cy="welcome-segment">
-          <h2 id="welcomeSegment" class="welcomeSegment">
-
-          </h2>
+          <h2 id="welcomeSegment" class="welcomeSegment">Welcome</h2>
         </div>
         <div class="todoContainer">
-          <div class="activeTodoContainer">
-            <ul class="activeTodo" data-cy="todo-list"></ul>  
-            <!-- <i class="delete-todo fas fa-trash" data-cy="delete-todo"></i>
-            <i class="edit-todo fas fa-edit" data-cy="edit-todo"></i> -->
+          <div id="activeTodoContainer" class="activeTodoContainer">
+            <ul class="activeTodo" data-cy="todo-list"></ul>
           </div>
-          </div>
-          <form class="addNewTodo"> 
-            <div class="inputContainer">
-              <input
-                class="todoText" 
-                data-
-                cy="todo-title-input" 
-                type="text"
-                name="message"
-              /> 
-
-              <input
-                id="chooseTodoDate"
-                class="chooseTodoDate"
-                data-cy="todo-date-input"
-                type="date"
-                value="2018-07-22"
-                min="2018-01-01"
-                max="2025-12-31"
-              />
-            </div>
-            <button class="addTodo" data-cy="save-todo-button">ADD</button>
-          </form>
         </div>
+
+        <div class="inputContainer">
+          <input
+            id="todoTitleInput"
+            class="todoText"
+            data-cy="todo-title-input"
+            type="text"
+            name="message"
+          />
+
+          <input
+            id="chooseTodoDate"
+            class="chooseTodoDate"
+            data-cy="todo-date-input"
+            type="date"
+            value="2018-07-22"
+            min="2018-01-01"
+            max="2025-12-31"
+          />
+        </div>
+        <button id="addTodo" class="addTodo" data-cy="save-todo-button">
+          ADD
+        </button>
       </aside>
       <div class="calenderContainer">
         <ul class="daysName">
-          <li data-cy="calendar-cell">Sun</li>
           <li data-cy="calendar-cell">Mon</li>
           <li data-cy="calendar-cell">Tue</li>
           <li data-cy="calendar-cell">Wed</li>
           <li data-cy="calendar-cell">Thu</li>
           <li data-cy="calendar-cell">Fri</li>
           <li data-cy="calendar-cell">Sat</li>
+          <li data-cy="calendar-cell">Sun</li>
         </ul>
         <ul id="dateContainer" class="dateContainer" data-cy="calendar-body">
           <li class="date" data-cy="calendar-cell-date">1</li>
@@ -84,7 +84,5 @@
         </ul>
       </div>
     </main>
-    <script src="calender.js"></script>
-    <script src="todos.js"></script>
   </body>
 </html>
