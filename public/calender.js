@@ -100,6 +100,13 @@ function generateCalendar(year, month) {
     const dateSpan = document.createElement('span');
     calanderDate.className = 'date';
 
+    const currentDate = `${currentYear}-${String(currentMonth + 1).padStart(
+      2,
+      '0',
+    )}-${String(i).padStart(2, '0')}`;
+    dateSpan.dataset.date = currentDate;
+
+
     // Apply a class for styling today's date
     if (
       i === today.getDate() &&
@@ -114,5 +121,19 @@ function generateCalendar(year, month) {
     dateSpan.textContent = i;
     dateContainer.appendChild(calanderDate);
     calanderDate.appendChild(dateSpan);
+
+
+    const todoCount = todos.filter(function (todo) {
+      return todo.date === currentDate;
+    }).length;
+
+    if (todoCount > 0) {
+      const todoNumberSpan = document.createElement('span');
+      todoNumberSpan.classList.add('todoCount');
+      todoNumberSpan.dataset.cy = 'calendar-cell-todos';
+      todoNumberSpan.textContent = todoCount;
+      calanderDate.appendChild(todoNumberSpan);
+    }
+
   }
 }

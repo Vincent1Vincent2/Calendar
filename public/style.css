@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
 }
 
@@ -175,7 +175,6 @@ button {
 
 .activeTodoContainer .task .content {
   flex: 1 1 0%;
-
 }
 
 .activeTodoContainer .task .content .text {
@@ -188,9 +187,9 @@ button {
 }
 
 .task .actions button {
-cursor: pointer;
-margin: 0 0.5rem;
-font-weight: 700;
+  cursor: pointer;
+  margin: 0 0.5rem;
+  font-weight: 700;
 }
 
 .todoContainer {
@@ -243,6 +242,7 @@ font-weight: 700;
   margin-top: 0.5rem;
   font-size: clamp(1.5rem, -2.2625rem + 5vw, 2.5rem);
   border-radius: 9rem;
+  position: relative;
 }
 
 .date:hover {
@@ -250,8 +250,28 @@ font-weight: 700;
 }
 
 .today {
+
+  background-color: #ffcccb;
+}
+
+.todoCount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 15%;
+  margin-left: 20px;
+  font-size: 15px;
+  background-color: rgb(214, 98, 98);
+  height: 20px;
+  width: 20px;
+  color: white;
+  border-radius: 100%;
+}
+
   background-color: #ffcccb; 
 }
+
 
 
 @media only screen and (max-width: 1025px) {
