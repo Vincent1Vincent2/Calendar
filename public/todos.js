@@ -6,10 +6,15 @@ function initTodos() {
 
 function createTodoStructure() {
   const newTodoContainer = document.getElementById('activeTodoContainer');
+  const currentDate = new Date().toISOString().split('T')[0];
 
+  const matchTodos = todos.filter(function (todo) {
+    return todo.date === currentDate;
+  });
   newTodoContainer.innerHTML = '';
 
-  for (let i = 0; i < todos.length; i++) {
+  for (let i = 0; i < matchTodos.length; i++) {
+    const todo = matchTodos[i];
     const todoContainer = document.createElement('ul');
     const todoTitleElement = document.createElement('li');
     const todoDateElement = document.createElement('li');
@@ -27,8 +32,6 @@ function createTodoStructure() {
 
     editTodoBtn.setAttribute('data-cy', 'edit-todo-button');
     editTodoBtn.textContent = 'Edit';
-
-    let todo = todos[i];
 
     todoTitleElement.textContent = todo.title;
     todoDateElement.textContent = todo.date;
