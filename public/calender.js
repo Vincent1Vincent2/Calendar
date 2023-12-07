@@ -105,8 +105,8 @@ function generateCalendar(year, month) {
       i === today.getDate() &&
       month === today.getMonth() &&
       year === today.getFullYear()
-    ) { 
-      li.classList.add('today'); 
+    ) {
+      calanderDate.classList.add('today');
     }
 
     calanderDate.dataset.cy = 'calendar-cell';
