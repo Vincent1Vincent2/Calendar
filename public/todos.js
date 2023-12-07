@@ -43,7 +43,9 @@ function createTodoStructure() {
     deleteTodoBtn.addEventListener('click', function () {
       todos.splice(i, 1);
       createTodoStructure();
+
       generateCalendar(currentYear, currentMonth);
+
     });
     editTodoBtn.addEventListener('click', function () {
       todo.title = 'todo';
@@ -67,5 +69,8 @@ function addTodo() {
   };
   todos.push(newTodo);
   createTodoStructure();
+
   generateCalendar(currentYear, currentMonth);
+
+
 }
