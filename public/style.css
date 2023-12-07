@@ -241,34 +241,18 @@ font-weight: 700;
   align-items: center;
   padding: 1.5rem 0.5rem;
   margin-top: 0.5rem;
-
   font-size: clamp(1.5rem, -2.2625rem + 5vw, 2.5rem);
   border-radius: 9rem;
 }
 
 .date:hover {
-  background-color: pink;
-}
-
-.current-day {
   background-color: #aaf;
 }
 
-.current-day:hover {
-  background-color: #aaf;
+.today {
+  background-color: #ffcccb; 
 }
 
-.next-day {
-  background-color: #bbf;
-}
-
-.next-day:hover {
-  background-color: red;
-}
-
-.initial-hover {
-  background-color: bluevit;
-}
 
 @media only screen and (max-width: 1025px) {
   main {

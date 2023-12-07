@@ -100,20 +100,13 @@ function generateCalendar(year, month) {
     const dateSpan = document.createElement('span');
     calanderDate.className = 'date';
 
-    // //Added class for hover effect on page load
+    // Apply a class for styling today's date
     if (
-      year === currentYear &&
-      month === currentMonth &&
-      i === new Date().getDate()
-    ) {
-      calanderDate.classList.add('current-day');
-    }
-    if (
-      year === currentYear &&
-      month === currentMonth &&
-      i === new Date().getDate()
-    ) {
-      calanderDate.classList.add('initial-hover');
+      i === today.getDate() &&
+      month === today.getMonth() &&
+      year === today.getFullYear()
+    ) { 
+      li.classList.add('today'); 
     }
 
     calanderDate.dataset.cy = 'calendar-cell';
