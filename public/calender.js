@@ -82,7 +82,7 @@ function generateCalendar(year, month) {
   //Clear current dates
   dateContainer.innerHTML = '';
 
-  //Add empty li elements befor the first day and remove hover effect
+  //Add empty li elements before the first day and remove hover effect
   for (let i = 0; i < firstDay; i++) {
     const emptyLi = document.createElement('li');
     emptyLi.className = 'date empty';
@@ -94,20 +94,13 @@ function generateCalendar(year, month) {
     const li = document.createElement('li');
     li.className = 'date';
 
-    // //Added class for hover effect on page load
+    // Apply a class for styling today's date
     if (
-      year === currentYear &&
-      month === currentMonth &&
-      i === new Date().getDate()
+      i === today.getDate() &&
+      month === today.getMonth() &&
+      year === today.getFullYear()
     ) {
-      li.classList.add('current-day');
-    }
-    if (
-      year === currentYear &&
-      month === currentMonth &&
-      i === new Date().getDate()
-    ) {
-      li.classList.add('initial-hover');
+      li.classList.add('today'); 
     }
 
     li.dataset.cy = 'calendar-cell-date';
