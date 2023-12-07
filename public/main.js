@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', main);
 let todos = [
   {
     title: 'laga julmat',
-    date: '2023-12-05',
+    date: '2023-11-05',
   },
   {
     title: 'Cykla',
