@@ -70,7 +70,11 @@ function daysInMonth(month, year) {
 
 //Function to get the starting day of the month (1 = monday)
 function getFirstDayOfMonth(month, year) {
-  return new Date(year, month, 1).getDay();
+  let day = new Date(year, month, 1).getDay() - 1;
+  if (day === -1) {
+    day += 7;
+  }
+  return day;
 }
 
 //Function to generate the numbers/days in calendar
@@ -87,24 +91,28 @@ function generateCalendar(year, month) {
     const emptyLi = document.createElement('li');
     emptyLi.className = 'date empty';
     emptyLi.style.pointerEvents = 'none';
+    emptyLi.dataset.cy = 'calendar-cell';
     dateContainer.appendChild(emptyLi);
   }
 
   for (let i = 1; i <= days; i++) {
-    const li = document.createElement('li');
-    li.className = 'date';
+    const calanderDate = document.createElement('li');
+    const dateSpan = document.createElement('span');
+    calanderDate.className = 'date';
 
     // Apply a class for styling today's date
     if (
       i === today.getDate() &&
       month === today.getMonth() &&
       year === today.getFullYear()
-    ) {
+    ) { 
       li.classList.add('today'); 
     }
 
-    li.dataset.cy = 'calendar-cell-date';
-    li.textContent = i;
-    dateContainer.appendChild(li);
+    calanderDate.dataset.cy = 'calendar-cell';
+    dateSpan.dataset.cy = 'calendar-cell-date';
+    dateSpan.textContent = i;
+    dateContainer.appendChild(calanderDate);
+    calanderDate.appendChild(dateSpan);
   }
 }
