@@ -70,7 +70,11 @@ function daysInMonth(month, year) {
 
 //Function to get the starting day of the month (1 = monday)
 function getFirstDayOfMonth(month, year) {
-  return new Date(year, month, 1).getDay();
+  let day = new Date(year, month, 1).getDay() - 1;
+  if (day === -1) {
+    day += 7;
+  }
+  return day;
 }
 
 //Function to generate the numbers/days in calendar
@@ -82,17 +86,19 @@ function generateCalendar(year, month) {
   //Clear current dates
   dateContainer.innerHTML = '';
 
-  //Add empty li elements befor the first day and remove hover effect
+  //Add empty li elements before the first day and remove hover effect
   for (let i = 0; i < firstDay; i++) {
     const emptyLi = document.createElement('li');
     emptyLi.className = 'date empty';
     emptyLi.style.pointerEvents = 'none';
+    emptyLi.dataset.cy = 'calendar-cell';
     dateContainer.appendChild(emptyLi);
   }
 
   for (let i = 1; i <= days; i++) {
-    const li = document.createElement('li');
-    li.className = 'date';
+    const calanderDate = document.createElement('li');
+    const dateSpan = document.createElement('span');
+    calanderDate.className = 'date';
 
     // //Added class for hover effect on page load
     if (
@@ -100,18 +106,20 @@ function generateCalendar(year, month) {
       month === currentMonth &&
       i === new Date().getDate()
     ) {
-      li.classList.add('current-day');
+      calanderDate.classList.add('current-day');
     }
     if (
       year === currentYear &&
       month === currentMonth &&
       i === new Date().getDate()
     ) {
-      li.classList.add('initial-hover');
+      calanderDate.classList.add('initial-hover');
     }
 
-    li.dataset.cy = 'calendar-cell-date';
-    li.textContent = i;
-    dateContainer.appendChild(li);
+    calanderDate.dataset.cy = 'calendar-cell';
+    dateSpan.dataset.cy = 'calendar-cell-date';
+    dateSpan.textContent = i;
+    dateContainer.appendChild(calanderDate);
+    calanderDate.appendChild(dateSpan);
   }
 }
