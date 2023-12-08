@@ -3,7 +3,6 @@ function initCalender() {
   //Display current months calendar
   generateCalendar(today.getFullYear(), today.getMonth());
 }
-
 //Declare variables
 const monthBack = document.getElementById('monthBack');
 const monthForward = document.getElementById('monthForward');
@@ -99,13 +98,11 @@ function generateCalendar(year, month) {
     const calanderDate = document.createElement('li');
     const dateSpan = document.createElement('span');
     calanderDate.className = 'date';
-
     const currentDate = `${currentYear}-${String(currentMonth + 1).padStart(
       2,
       '0',
     )}-${String(i).padStart(2, '0')}`;
-    dateSpan.dataset.date = currentDate;
-
+    calanderDate.dataset.date = currentDate;
 
     // Apply a class for styling today's date
     if (
@@ -122,7 +119,6 @@ function generateCalendar(year, month) {
     dateContainer.appendChild(calanderDate);
     calanderDate.appendChild(dateSpan);
 
-
     const todoCount = todos.filter(function (todo) {
       return todo.date === currentDate;
     }).length;
@@ -134,6 +130,9 @@ function generateCalendar(year, month) {
       todoNumberSpan.textContent = todoCount;
       calanderDate.appendChild(todoNumberSpan);
     }
-
+    calanderDate.addEventListener('mouseover', function () {
+      const clickedDate = this.dataset.date;
+      createTodoStructure(clickedDate);
+    });
   }
 }

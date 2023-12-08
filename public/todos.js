@@ -4,12 +4,16 @@ function initTodos() {
   createTodoStructure();
 }
 
-function createTodoStructure() {
+function createTodoStructure(clickedDate) {
   const newTodoContainer = document.getElementById('activeTodoContainer');
 
-  newTodoContainer.innerHTML = '';
+  const matchTodos = todos.filter(function (todo) {
+    return todo.date === clickedDate;
+  });
+  newTodoContainer.innerHTML = ' ';
 
-  for (let i = 0; i < todos.length; i++) {
+  for (let i = 0; i < matchTodos.length; i++) {
+    const todo = matchTodos[i];
     const todoContainer = document.createElement('ul');
     const todoTitleElement = document.createElement('li');
     const todoDateElement = document.createElement('li');
@@ -28,8 +32,6 @@ function createTodoStructure() {
     editTodoBtn.setAttribute('data-cy', 'edit-todo-button');
     editTodoBtn.textContent = 'Edit';
 
-    let todo = todos[i];
-
     todoTitleElement.textContent = todo.title;
     todoDateElement.textContent = todo.date;
 
@@ -40,13 +42,28 @@ function createTodoStructure() {
     todoBtnContainer.appendChild(deleteTodoBtn);
     todoBtnContainer.appendChild(editTodoBtn);
 
-    deleteTodoBtn.addEventListener('click', function () {
-      todos.splice(i, 1);
-      createTodoStructure();
+    deleteTodoBtn.addEventListener(
+      'click',
+      (function (clickedTodo) {
+        return function () {
+          for (let i = 0; i < todos.length; i++) {
+            if (
+              todos[i].title === clickedTodo.title &&
+              todos[i].date === clickedTodo.date
+            ) {
+              todos.splice(i, 1);
+              createTodoStructure(clickedDate);
+              generateCalendar(currentYear, currentMonth);
+              const emptyUl = document.createElement('ul');
+              newTodoContainer.appendChild(emptyUl);
+              emptyUl.setAttribute('data-cy', 'todo-list');
+              break;
+            }
+          }
+        };
+      })(todo),
+    );
 
-      generateCalendar(currentYear, currentMonth);
-
-    });
     editTodoBtn.addEventListener('click', function () {
       todo.title = 'todo';
       createTodoStructure();
@@ -71,6 +88,4 @@ function addTodo() {
   createTodoStructure();
 
   generateCalendar(currentYear, currentMonth);
-
-
 }
