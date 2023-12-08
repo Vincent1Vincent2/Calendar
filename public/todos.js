@@ -2,14 +2,25 @@ const addTodoBtn = document.getElementById('addTodo');
 // Execute the following code when the window has finished loading
 function initTodos() {
   createTodoStructure();
+  displayTodayTodo();
 }
 
-function createTodoStructure() {
+function displayTodayTodo() {
   const newTodoContainer = document.getElementById('activeTodoContainer');
 
-  newTodoContainer.innerHTML = '';
+  const today = new Date();
 
-  for (let i = 0; i < todos.length; i++) {
+  const todaysDate = `${today.getFullYear()}-${String(
+    today.getMonth() + 1,
+  ).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+
+  const matchTodos = todos.filter(function (todo) {
+    return todo.date === todaysDate;
+  });
+  newTodoContainer.innerHTML = ' ';
+
+  for (let i = 0; i < matchTodos.length; i++) {
+    const todo = matchTodos[i];
     const todoContainer = document.createElement('ul');
     const todoTitleElement = document.createElement('li');
     const todoDateElement = document.createElement('li');
@@ -28,7 +39,72 @@ function createTodoStructure() {
     editTodoBtn.setAttribute('data-cy', 'edit-todo-button');
     editTodoBtn.textContent = 'Edit';
 
-    let todo = todos[i];
+    todoTitleElement.textContent = todo.title;
+    todoDateElement.textContent = todo.date;
+
+    newTodoContainer.appendChild(todoContainer);
+    todoContainer.appendChild(todoTitleElement);
+    todoContainer.appendChild(todoDateElement);
+    todoTitleElement.appendChild(todoBtnContainer);
+    todoBtnContainer.appendChild(deleteTodoBtn);
+    todoBtnContainer.appendChild(editTodoBtn);
+
+    deleteTodoBtn.addEventListener(
+      'click',
+      (function (clickedTodo) {
+        return function () {
+          for (let i = 0; i < todos.length; i++) {
+            if (
+              todos[i].title === clickedTodo.title &&
+              todos[i].date === clickedTodo.date
+            ) {
+              todos.splice(i, 1);
+              createTodoStructure();
+              generateCalendar(currentYear, currentMonth);
+              const emptyUl = document.createElement('ul');
+              newTodoContainer.appendChild(emptyUl);
+              emptyUl.setAttribute('data-cy', 'todo-list');
+              break;
+            }
+          }
+        };
+      })(todo),
+    );
+
+    editTodoBtn.addEventListener('click', function () {
+      todo.title = 'todo';
+      createTodoStructure();
+    });
+  }
+}
+
+function createTodoStructure(clickedDate) {
+  const newTodoContainer = document.getElementById('activeTodoContainer');
+
+  const matchTodos = todos.filter(function (todo) {
+    return todo.date === clickedDate;
+  });
+  newTodoContainer.innerHTML = ' ';
+
+  for (let i = 0; i < matchTodos.length; i++) {
+    const todo = matchTodos[i];
+    const todoContainer = document.createElement('ul');
+    const todoTitleElement = document.createElement('li');
+    const todoDateElement = document.createElement('li');
+    const todoBtnContainer = document.createElement('div');
+    const deleteTodoBtn = document.createElement('button');
+    const editTodoBtn = document.createElement('button');
+
+    todoContainer.setAttribute('data-cy', 'todo-list');
+    todoTitleElement.classList.add('todoTitle');
+    todoDateElement.classList.add('todoDate');
+    todoBtnContainer.classList.add('todoBtns');
+
+    deleteTodoBtn.setAttribute('data-cy', 'delete-todo-button');
+    deleteTodoBtn.textContent = 'Delete';
+
+    editTodoBtn.setAttribute('data-cy', 'edit-todo-button');
+    editTodoBtn.textContent = 'Edit';
 
     todoTitleElement.textContent = todo.title;
     todoDateElement.textContent = todo.date;
@@ -40,13 +116,28 @@ function createTodoStructure() {
     todoBtnContainer.appendChild(deleteTodoBtn);
     todoBtnContainer.appendChild(editTodoBtn);
 
-    deleteTodoBtn.addEventListener('click', function () {
-      todos.splice(i, 1);
-      createTodoStructure();
+    deleteTodoBtn.addEventListener(
+      'click',
+      (function (clickedTodo) {
+        return function () {
+          for (let i = 0; i < todos.length; i++) {
+            if (
+              todos[i].title === clickedTodo.title &&
+              todos[i].date === clickedTodo.date
+            ) {
+              todos.splice(i, 1);
+              createTodoStructure(clickedDate);
+              generateCalendar(currentYear, currentMonth);
+              const emptyUl = document.createElement('ul');
+              newTodoContainer.appendChild(emptyUl);
+              emptyUl.setAttribute('data-cy', 'todo-list');
+              break;
+            }
+          }
+        };
+      })(todo),
+    );
 
-      generateCalendar(currentYear, currentMonth);
-
-    });
     editTodoBtn.addEventListener('click', function () {
       todo.title = 'todo';
       createTodoStructure();
@@ -69,8 +160,6 @@ function addTodo() {
   };
   todos.push(newTodo);
   createTodoStructure();
-
+  displayTodayTodo();
   generateCalendar(currentYear, currentMonth);
-
-
 }
