@@ -106,7 +106,6 @@ function generateCalendar(year, month) {
     )}-${String(i).padStart(2, '0')}`;
     dateSpan.dataset.date = currentDate;
 
-
     // Apply a class for styling today's date
     if (
       i === today.getDate() &&
@@ -122,7 +121,6 @@ function generateCalendar(year, month) {
     dateContainer.appendChild(calanderDate);
     calanderDate.appendChild(dateSpan);
 
-
     const todoCount = todos.filter(function (todo) {
       return todo.date === currentDate;
     }).length;
@@ -134,6 +132,5 @@ function generateCalendar(year, month) {
       todoNumberSpan.textContent = todoCount;
       calanderDate.appendChild(todoNumberSpan);
     }
-
   }
 }
