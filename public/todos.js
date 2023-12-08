@@ -18,6 +18,7 @@ function displayTodayTodo() {
     return todo.date === todaysDate;
   });
   newTodoContainer.innerHTML = ' ';
+}
 
 function createTodoStructure(clickedDate) {
   const newTodoContainer = document.getElementById('activeTodoContainer');
@@ -67,7 +68,7 @@ function createTodoStructure(clickedDate) {
               todos[i].date === clickedTodo.date
             ) {
               todos.splice(i, 1);
-              
+
               createTodoStructure();
               generateCalendar(currentYear, currentMonth);
               const emptyUl = document.createElement('ul');

@@ -132,7 +132,7 @@ function generateCalendar(year, month) {
     }
 
     calanderDate.addEventListener('click', function () {
-    calanderDate.addEventListener('mouseover', function () {
+    //calanderDate.addEventListener('mouseover', function () {
       const clickedDate = this.dataset.date;
       createTodoStructure(clickedDate);
     });
