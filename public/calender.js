@@ -98,7 +98,6 @@ function generateCalendar(year, month) {
     const calanderDate = document.createElement('li');
     const dateSpan = document.createElement('span');
     calanderDate.className = 'date';
-
     const currentDate = `${currentYear}-${String(currentMonth + 1).padStart(
       2,
       '0',
@@ -131,10 +130,8 @@ function generateCalendar(year, month) {
       todoNumberSpan.textContent = todoCount;
       calanderDate.appendChild(todoNumberSpan);
     }
-    calanderDate.addEventListener('click', function () {
+    calanderDate.addEventListener('mouseover', function () {
       const clickedDate = this.dataset.date;
-      console.log('Clicked date:', clickedDate);
-
       createTodoStructure(clickedDate);
     });
   }
