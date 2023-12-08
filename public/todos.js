@@ -45,19 +45,25 @@ function createTodoStructure() {
       createTodoStructure();
 
       generateCalendar(currentYear, currentMonth);
-
     });
+    
     editTodoBtn.addEventListener('click', function () {
       editTodoTitle(todo);
     });
 
-    function editTodoTitle(todo) {
-      const newTitle = prompt('Enter the new title for the todo:', todo.title);
-      if (newTitle !== null) {
-        todo.title = newTitle;
-        createTodoStructure();
-      }
-    }
+  }
+}
+
+function editTodoTitle(todo) {
+  const newTitle = prompt('Edit todo title', todo.title);
+  if (newTitle !== null) {
+    todo.title = newTitle;
+    createTodoStructure();
+    
+    // todoTitleElement.setAttribute('contenteditable', 'true');
+    // todo.title = 'todo';
+    // add save button
+    // make sure whole content isn't editable
   }
 }
 
