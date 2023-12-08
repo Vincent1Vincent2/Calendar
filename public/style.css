@@ -250,7 +250,6 @@ button {
 }
 
 .today {
-
   background-color: #ffcccb;
 }
 
@@ -268,11 +267,6 @@ button {
   color: white;
   border-radius: 100%;
 }
-
-  background-color: #ffcccb; 
-}
-
-
 
 @media only screen and (max-width: 1025px) {
   main {

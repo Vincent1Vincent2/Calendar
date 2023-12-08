@@ -4,12 +4,11 @@ function initTodos() {
   createTodoStructure();
 }
 
-function createTodoStructure() {
+function createTodoStructure(clickedDate) {
   const newTodoContainer = document.getElementById('activeTodoContainer');
-  const currentDate = new Date().toISOString().split('T')[0];
 
   const matchTodos = todos.filter(function (todo) {
-    return todo.date === currentDate;
+    return todo.date === clickedDate;
   });
   newTodoContainer.innerHTML = '';
 
@@ -43,13 +42,24 @@ function createTodoStructure() {
     todoBtnContainer.appendChild(deleteTodoBtn);
     todoBtnContainer.appendChild(editTodoBtn);
 
-    deleteTodoBtn.addEventListener('click', function () {
-      todos.splice(i, 1);
-      createTodoStructure();
+    deleteTodoBtn.addEventListener(
+      'click',
+      (function (clickedTodo) {
+        return function () {
+          for (let i = 0; i < todos.length; i++) {
+            if (
+              todos[i].title === clickedTodo.title &&
+              todos[i].date === clickedTodo.date
+            ) {
+              todos.splice(i, 1);
+              createTodoStructure(clickedDate);
+              break;
+            }
+          }
+        };
+      })(todo),
+    );
 
-      generateCalendar(currentYear, currentMonth);
-
-    });
     editTodoBtn.addEventListener('click', function () {
       todo.title = 'todo';
       createTodoStructure();
@@ -72,8 +82,5 @@ function addTodo() {
   };
   todos.push(newTodo);
   createTodoStructure();
-
   generateCalendar(currentYear, currentMonth);
-
-
 }
