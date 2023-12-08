@@ -7,7 +7,7 @@ let todos = [
   },
   {
     title: 'Cykla',
-    date: '2023-11-05',
+    date: '2023-11-07',
   },
 ];
 

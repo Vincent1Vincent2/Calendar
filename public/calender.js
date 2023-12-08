@@ -130,7 +130,9 @@ function generateCalendar(year, month) {
       todoNumberSpan.textContent = todoCount;
       calanderDate.appendChild(todoNumberSpan);
     }
+
     calanderDate.addEventListener('click', function () {
+    calanderDate.addEventListener('mouseover', function () {
       const clickedDate = this.dataset.date;
       createTodoStructure(clickedDate);
     });

@@ -19,6 +19,14 @@ function displayTodayTodo() {
   });
   newTodoContainer.innerHTML = ' ';
 
+function createTodoStructure(clickedDate) {
+  const newTodoContainer = document.getElementById('activeTodoContainer');
+
+  const matchTodos = todos.filter(function (todo) {
+    return todo.date === clickedDate;
+  });
+  newTodoContainer.innerHTML = ' ';
+
   for (let i = 0; i < matchTodos.length; i++) {
     const todo = matchTodos[i];
     const todoContainer = document.createElement('ul');
@@ -59,6 +67,7 @@ function displayTodayTodo() {
               todos[i].date === clickedTodo.date
             ) {
               todos.splice(i, 1);
+              
               createTodoStructure();
               generateCalendar(currentYear, currentMonth);
               const emptyUl = document.createElement('ul');
@@ -126,6 +135,7 @@ function createTodoStructure(clickedDate) {
               todos[i].date === clickedTodo.date
             ) {
               todos.splice(i, 1);
+
               createTodoStructure(clickedDate);
               generateCalendar(currentYear, currentMonth);
               const emptyUl = document.createElement('ul');
