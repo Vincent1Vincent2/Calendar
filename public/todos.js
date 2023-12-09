@@ -148,7 +148,6 @@ function createTodoStructure(clickedDate) {
 
   }
   newTodoContainer.appendChild(todoContainer);
-
 }
 
 function editTodoTitle(todo, todoTitleElement) {
