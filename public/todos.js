@@ -80,14 +80,9 @@ function displayTodayTodo() {
 function createTodoStructure(clickedDate) {
   const newTodoContainer = document.getElementById('activeTodoContainer');
 
-  const matchTodos = clickedDate
-    ? todos.filter(function (todo) {
-        return todo.date === clickedDate;
-      })
-    : todos;
-  // const matchTodos = todos.filter(function (todo) {
-  //   return todo.date === clickedDate;
-  // });
+  const matchTodos = todos.filter(function (todo) {
+    return todo.date === clickedDate;
+  });
 
   newTodoContainer.innerHTML = '';
   
