@@ -97,6 +97,7 @@ function addTodo() {
   let dateSelector = document.getElementById('chooseTodoDate');
   const todo = todoTitleInput.value;
   const selectedDate = dateSelector.value;
+  
   let newTodo = {
     title: todo,
     date: selectedDate,
