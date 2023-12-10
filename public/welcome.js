@@ -32,7 +32,7 @@ function updateTime() {
   ];
   let day = days[today.getDay()];
   let month = months[today.getMonth()];
-  let date = today.getDate();
+  let date = addZeroIfNeeded(today.getDate());
   let hours = addZeroIfNeeded(today.getHours());
   let minutes = addZeroIfNeeded(today.getMinutes());
   let seconds = addZeroIfNeeded(today.getSeconds());

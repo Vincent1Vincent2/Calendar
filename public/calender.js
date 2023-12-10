@@ -3,7 +3,6 @@ function initCalender() {
   //Display current months calendar
   generateCalendar(today.getFullYear(), today.getMonth());
 }
-
 //Declare variables
 const monthBack = document.getElementById('monthBack');
 const monthForward = document.getElementById('monthForward');
@@ -70,7 +69,11 @@ function daysInMonth(month, year) {
 
 //Function to get the starting day of the month (1 = monday)
 function getFirstDayOfMonth(month, year) {
-  return new Date(year, month, 1).getDay();
+  let day = new Date(year, month, 1).getDay() - 1;
+  if (day === -1) {
+    day += 7;
+  }
+  return day;
 }
 
 //Function to generate the numbers/days in calendar
@@ -82,36 +85,56 @@ function generateCalendar(year, month) {
   //Clear current dates
   dateContainer.innerHTML = '';
 
-  //Add empty li elements befor the first day and remove hover effect
+  //Add empty li elements before the first day and remove hover effect
   for (let i = 0; i < firstDay; i++) {
     const emptyLi = document.createElement('li');
     emptyLi.className = 'date empty';
     emptyLi.style.pointerEvents = 'none';
+    emptyLi.dataset.cy = 'calendar-cell';
     dateContainer.appendChild(emptyLi);
   }
 
   for (let i = 1; i <= days; i++) {
-    const li = document.createElement('li');
-    li.className = 'date';
+    const calanderDate = document.createElement('li');
+    const dateSpan = document.createElement('span');
+    calanderDate.className = 'date';
+    const currentDate = `${currentYear}-${String(currentMonth + 1).padStart(
+      2,
+      '0',
+    )}-${String(i).padStart(2, '0')}`;
+    calanderDate.dataset.date = currentDate;
 
-    // //Added class for hover effect on page load
+    // Apply a class for styling today's date
     if (
-      year === currentYear &&
-      month === currentMonth &&
-      i === new Date().getDate()
+      i === today.getDate() &&
+      month === today.getMonth() &&
+      year === today.getFullYear()
     ) {
-      li.classList.add('current-day');
-    }
-    if (
-      year === currentYear &&
-      month === currentMonth &&
-      i === new Date().getDate()
-    ) {
-      li.classList.add('initial-hover');
+      calanderDate.classList.add('today');
     }
 
-    li.dataset.cy = 'calendar-cell-date';
-    li.textContent = i;
-    dateContainer.appendChild(li);
+    calanderDate.dataset.cy = 'calendar-cell';
+    dateSpan.dataset.cy = 'calendar-cell-date';
+    dateSpan.textContent = i;
+    dateContainer.appendChild(calanderDate);
+    calanderDate.appendChild(dateSpan);
+
+    const todoCount = todos.filter(function (todo) {
+      return todo.date === currentDate;
+    }).length;
+
+    if (todoCount > 0) {
+      const todoNumberSpan = document.createElement('span');
+      todoNumberSpan.classList.add('todoCount');
+      todoNumberSpan.dataset.cy = 'calendar-cell-todos';
+      todoNumberSpan.textContent = todoCount;
+      calanderDate.appendChild(todoNumberSpan);
+    }
+
+    calanderDate.addEventListener('click', function () {
+    //calanderDate.addEventListener('mouseover', function () {
+      const clickedDate = this.dataset.date;
+      createTodoStructure(clickedDate);
+    });
   }
 }
