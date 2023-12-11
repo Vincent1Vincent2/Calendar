@@ -13,7 +13,7 @@ function displayTodos() {
     const todo = todos[i];
     const todoContainer = document.createElement('ul');
     const todoTitleElement = document.createElement('li');
-    const todoDateElement = document.createElement('li');
+    const todoDateElement = document.createElement('span');
     const todoBtnContainer = document.createElement('div');
     const deleteTodoBtn = document.createElement('button');
     const editTodoBtn = document.createElement('button');
@@ -34,7 +34,7 @@ function displayTodos() {
 
     newTodoContainer.appendChild(todoContainer);
     todoContainer.appendChild(todoTitleElement);
-    todoContainer.appendChild(todoDateElement);
+    todoTitleElement.appendChild(todoDateElement);
     todoTitleElement.appendChild(todoBtnContainer);
     todoBtnContainer.appendChild(deleteTodoBtn);
     todoBtnContainer.appendChild(editTodoBtn);
@@ -62,8 +62,13 @@ function displayTodos() {
     );
 
     editTodoBtn.addEventListener('click', function () {
-      todo.title = 'todo';
+      todos.splice(i, 1);
       createTodoStructure();
+      displayTodos();
+      generateCalendar(currentYear, currentMonth);
+      const emptyUl = document.createElement('ul');
+      newTodoContainer.appendChild(emptyUl);
+      emptyUl.setAttribute('data-cy', 'todo-list');
     });
   }
 }
@@ -80,7 +85,7 @@ function createTodoStructure(clickedDate) {
     const todo = matchTodos[i];
     const todoContainer = document.createElement('ul');
     const todoTitleElement = document.createElement('li');
-    const todoDateElement = document.createElement('li');
+    const todoDateElement = document.createElement('span');
     const todoBtnContainer = document.createElement('div');
     const deleteTodoBtn = document.createElement('button');
     const editTodoBtn = document.createElement('button');
@@ -101,7 +106,7 @@ function createTodoStructure(clickedDate) {
 
     newTodoContainer.appendChild(todoContainer);
     todoContainer.appendChild(todoTitleElement);
-    todoContainer.appendChild(todoDateElement);
+    todoTitleElement.appendChild(todoDateElement);
     todoTitleElement.appendChild(todoBtnContainer);
     todoBtnContainer.appendChild(deleteTodoBtn);
     todoBtnContainer.appendChild(editTodoBtn);
@@ -130,8 +135,12 @@ function createTodoStructure(clickedDate) {
     );
 
     editTodoBtn.addEventListener('click', function () {
-      todo.title = 'todo';
-      createTodoStructure();
+      todos.splice(i, 1);
+      createTodoStructure(clickedDate);
+      generateCalendar(currentYear, currentMonth);
+      const emptyUl = document.createElement('ul');
+      newTodoContainer.appendChild(emptyUl);
+      emptyUl.setAttribute('data-cy', 'todo-list');
     });
   }
 }
