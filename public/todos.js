@@ -72,10 +72,12 @@ function displayTodayTodo() {
     );
 
     editTodoBtn.addEventListener('click', function () {
-      editTodoTitle(todo, todoTitleElement);
+      todo.title = 'todo';
+      createTodoStructure();
     });
   }
 }
+
 
 function createTodoStructure(clickedDate) {
   const newTodoContainer = document.getElementById('activeTodoContainer');
@@ -192,8 +194,6 @@ function addTodo() {
   };
   todos.push(newTodo);
   createTodoStructure();
-  // displayTodayTodo();
+  displayTodayTodo();
   generateCalendar(currentYear, currentMonth);
-
-
 }
