@@ -1,8 +1,6 @@
 const addTodoBtn = document.getElementById('addTodo');
 // Execute the following code when the window has finished loading
-function initTodos() {
-  displayTodos();
-}
+function initTodos() {}
 
 function displayTodos(clickedDate) {
   const newTodoContainer = document.getElementById('activeTodoContainer');
