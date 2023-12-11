@@ -1,6 +1,8 @@
 const addTodoBtn = document.getElementById('addTodo');
 // Execute the following code when the window has finished loading
-function initTodos() {}
+function initTodos() {
+  displayTodos();
+}
 
 function displayTodos(clickedDate) {
   const newTodoContainer = document.getElementById('activeTodoContainer');
@@ -39,6 +41,8 @@ function displayTodos(clickedDate) {
     todoTitleElement.appendChild(todoBtnContainer);
     todoBtnContainer.appendChild(deleteTodoBtn);
     todoBtnContainer.appendChild(editTodoBtn);
+
+    generateCalendar(currentYear, currentMonth);
 
     deleteTodoBtn.addEventListener(
       'click',
