@@ -150,6 +150,7 @@ function addTodo() {
     date: selectedDate,
   };
   todos.push(newTodo);
+  saveTodoToLS();
   createTodoStructure();
   displayTodos();
   generateCalendar(currentYear, currentMonth);

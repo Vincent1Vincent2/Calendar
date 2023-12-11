@@ -7,5 +7,5 @@ function main() {
   initTodos();
   initWelcome();
   initCalender();
-  initLocalStorage();
+  initLS();
 }
