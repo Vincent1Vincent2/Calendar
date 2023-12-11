@@ -1,5 +1,6 @@
 window.addEventListener('DOMContentLoaded', main);
 
+
 let todos = [
   {
     title: 'laga julmat',
@@ -10,6 +11,7 @@ let todos = [
     date: '2023-11-07',
   },
 ];
+
 
 function main() {
   // load from LS
