@@ -3,9 +3,8 @@ window.addEventListener('DOMContentLoaded', main);
 let todos = [];
 
 function main() {
-  // load from LS
+  loadTodosFromLS();
   initTodos();
   initWelcome();
   initCalender();
-  initLS();
 }
