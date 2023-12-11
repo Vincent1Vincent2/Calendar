@@ -1,8 +1,6 @@
 const addTodoBtn = document.getElementById('addTodo');
 // Execute the following code when the window has finished loading
-function initTodos() {
-  displayTodos();
-}
+function initTodos() {}
 
 function displayTodos() {
   const newTodoContainer = document.getElementById('activeTodoContainer');
@@ -162,4 +160,5 @@ function addTodo() {
   createTodoStructure();
   displayTodos();
   generateCalendar(currentYear, currentMonth);
+  saveTodoToLS();
 }

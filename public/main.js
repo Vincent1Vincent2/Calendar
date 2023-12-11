@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', main);
 let todos = [];
 
 function main() {
-  // load from LS
+  initLS();
   initTodos();
   initWelcome();
   initCalender();
