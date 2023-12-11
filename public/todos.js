@@ -8,19 +8,8 @@ function initTodos() {
 function displayTodayTodo() {
   const newTodoContainer = document.getElementById('activeTodoContainer');
 
-  const today = new Date();
-
-  const todaysDate = `${today.getFullYear()}-${String(
-    today.getMonth() + 1,
-  ).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
-
-  const matchTodos = todos.filter(function (todo) {
-    return todo.date === todaysDate;
-  });
-  newTodoContainer.innerHTML = ' ';
-
-  for (let i = 0; i < matchTodos.length; i++) {
-    const todo = matchTodos[i];
+  for (let i = 0; i < todos.length; i++) {
+    const todo = todos[i];
     const todoContainer = document.createElement('ul');
     const todoTitleElement = document.createElement('li');
     const todoDateElement = document.createElement('li');
@@ -78,27 +67,24 @@ function displayTodayTodo() {
   }
 }
 
-
 function createTodoStructure(clickedDate) {
   const newTodoContainer = document.getElementById('activeTodoContainer');
 
   const matchTodos = todos.filter(function (todo) {
     return todo.date === clickedDate;
   });
+  newTodoContainer.innerHTML = ' ';
 
-  newTodoContainer.innerHTML = '';
-  
-  const todoContainer = document.createElement('ul');
-  todoContainer.setAttribute('data-cy', 'todo-list');
-
-  for (let i = 0; i < todos.length; i++) {
+  for (let i = 0; i < matchTodos.length; i++) {
+    const todo = matchTodos[i];
+    const todoContainer = document.createElement('ul');
     const todoTitleElement = document.createElement('li');
-    const todoDateElement = document.createElement('span');
+    const todoDateElement = document.createElement('li');
     const todoBtnContainer = document.createElement('div');
     const deleteTodoBtn = document.createElement('button');
     const editTodoBtn = document.createElement('button');
 
-    todoContainer.setAttribute('id', 'todo-' + todos[i].id);
+    todoContainer.setAttribute('data-cy', 'todo-list');
     todoTitleElement.classList.add('todoTitle');
     todoDateElement.classList.add('todoDate');
     todoBtnContainer.classList.add('todoBtns');
@@ -109,18 +95,15 @@ function createTodoStructure(clickedDate) {
     editTodoBtn.setAttribute('data-cy', 'edit-todo-button');
     editTodoBtn.textContent = 'Edit';
 
-    let todo = todos[i];
+    todoTitleElement.textContent = todo.title;
+    todoDateElement.textContent = todo.date;
 
-    todoDateElement.textContent = ' - ' + todo.date;
-    
-    // Create a text node for the title and append it to the todoTitleElement
-    const todoTitleTextNode = document.createTextNode(todo.title);
-    todoTitleElement.appendChild(todoTitleTextNode);
-    todoTitleElement.appendChild(todoDateElement);
+    newTodoContainer.appendChild(todoContainer);
+    todoContainer.appendChild(todoTitleElement);
+    todoContainer.appendChild(todoDateElement);
     todoTitleElement.appendChild(todoBtnContainer);
     todoBtnContainer.appendChild(deleteTodoBtn);
     todoBtnContainer.appendChild(editTodoBtn);
-    todoContainer.appendChild(todoTitleElement);
 
     deleteTodoBtn.addEventListener(
       'click',
@@ -132,7 +115,7 @@ function createTodoStructure(clickedDate) {
               todos[i].date === clickedTodo.date
             ) {
               todos.splice(i, 1);
-              createTodoStructure();
+              createTodoStructure(clickedDate);
               generateCalendar(currentYear, currentMonth);
               const emptyUl = document.createElement('ul');
               newTodoContainer.appendChild(emptyUl);
@@ -145,37 +128,11 @@ function createTodoStructure(clickedDate) {
     );
 
     editTodoBtn.addEventListener('click', function () {
-      editTodoTitle(todo, todoTitleElement);
+      todo.title = 'todo';
+      createTodoStructure();
     });
-
   }
-  newTodoContainer.appendChild(todoContainer);
 }
-
-function editTodoTitle(todo, todoTitleElement) {
-    // Set the todo title to be editable and focus on it
-    todoTitleElement.setAttribute('contenteditable', 'true');
-    todoTitleElement.focus();
-  
-    // Create and add the save button
-    const saveButton = document.createElement('button');
-    saveButton.innerText = 'Save';
-    saveButton.addEventListener('click', function() {
-      saveTodoTitle(todo, todoTitleElement, saveButton, todo.date);
-    });
-    todoTitleElement.after(saveButton);
-  }
-
-  function saveTodoTitle(todo, todoTitleElement, saveButton, date) {
-    // Update the todo title and remove the save button
-    const newTitle = todoTitleElement.firstChild.nodeValue;
-    if (newTitle !== null) {
-      todo.title = newTitle;
-      todoTitleElement.removeAttribute('contenteditable');
-      saveButton.remove();
-      createTodoStructure(date);
-    }
-  }
 
 addTodoBtn.addEventListener('click', function () {
   addTodo();
@@ -186,11 +143,9 @@ function addTodo() {
   let dateSelector = document.getElementById('chooseTodoDate');
   const todo = todoTitleInput.value;
   const selectedDate = dateSelector.value;
-  
   let newTodo = {
     title: todo,
     date: selectedDate,
-    id: todos.length,
   };
   todos.push(newTodo);
   createTodoStructure();
