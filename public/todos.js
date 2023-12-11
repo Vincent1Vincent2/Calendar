@@ -54,6 +54,7 @@ function displayTodos() {
               const emptyUl = document.createElement('ul');
               newTodoContainer.appendChild(emptyUl);
               emptyUl.setAttribute('data-cy', 'todo-list');
+              localStorage.removeItem(todos);
               break;
             }
           }
@@ -63,6 +64,7 @@ function displayTodos() {
 
     editTodoBtn.addEventListener('click', function () {
       todos.splice(i, 1);
+
       createTodoStructure();
       displayTodos();
       generateCalendar(currentYear, currentMonth);
@@ -127,6 +129,7 @@ function createTodoStructure(clickedDate) {
               const emptyUl = document.createElement('ul');
               newTodoContainer.appendChild(emptyUl);
               emptyUl.setAttribute('data-cy', 'todo-list');
+              localStorage.removeItem(todos);
               break;
             }
           }
@@ -159,8 +162,8 @@ function addTodo() {
     date: selectedDate,
   };
   todos.push(newTodo);
-  saveTodoToLS();
   createTodoStructure();
   displayTodos();
   generateCalendar(currentYear, currentMonth);
+  saveTodoToLS();
 }
