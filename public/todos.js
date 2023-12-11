@@ -1,12 +1,13 @@
 const addTodoBtn = document.getElementById('addTodo');
 // Execute the following code when the window has finished loading
 function initTodos() {
-  createTodoStructure();
-  displayTodayTodo();
+  displayTodos();
 }
 
-function displayTodayTodo() {
+function displayTodos() {
   const newTodoContainer = document.getElementById('activeTodoContainer');
+
+  newTodoContainer.innerHTML = ' ';
 
   for (let i = 0; i < todos.length; i++) {
     const todo = todos[i];
@@ -48,7 +49,7 @@ function displayTodayTodo() {
               todos[i].date === clickedTodo.date
             ) {
               todos.splice(i, 1);
-              createTodoStructure();
+              displayTodos();
               generateCalendar(currentYear, currentMonth);
               const emptyUl = document.createElement('ul');
               newTodoContainer.appendChild(emptyUl);
@@ -115,6 +116,7 @@ function createTodoStructure(clickedDate) {
               todos[i].date === clickedTodo.date
             ) {
               todos.splice(i, 1);
+              displayTodos();
               createTodoStructure(clickedDate);
               generateCalendar(currentYear, currentMonth);
               const emptyUl = document.createElement('ul');
@@ -149,6 +151,6 @@ function addTodo() {
   };
   todos.push(newTodo);
   createTodoStructure();
-  displayTodayTodo();
+  displayTodos();
   generateCalendar(currentYear, currentMonth);
 }
