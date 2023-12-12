@@ -1,4 +1,5 @@
 const addTodoBtn = document.getElementById('addTodo');
+const saveBtn = document.createElement('button');
 // Execute the following code when the window has finished loading
 function initTodos() {
   displayTodos();
@@ -22,6 +23,7 @@ function displayTodos(clickedDate) {
     const editTodoBtn = document.createElement('button');
 
     todoContainer.setAttribute('data-cy', 'todo-list');
+    todoContainer.classList.add('todo');
     todoTitleElement.classList.add('todoTitle');
     todoDateElement.classList.add('todoDate');
     todoBtnContainer.classList.add('todoBtns');
@@ -70,12 +72,49 @@ function displayTodos(clickedDate) {
 
     editTodoBtn.addEventListener('click', function () {
       todos.splice(i, 1);
-      displayTodos(clickedDate);
-      generateCalendar(currentYear, currentMonth);
-      saveTodoToLS();
-      const emptyUl = document.createElement('ul');
-      newTodoContainer.appendChild(emptyUl);
-      emptyUl.setAttribute('data-cy', 'todo-list');
+      const editTodoInput = document.createElement('input');
+      const editDateInput = document.createElement('input');
+      const saveBtn = document.createElement('button');
+      saveBtn.setAttribute('data-cy', 'save-todo-button');
+      addTodoBtn.setAttribute('data-cy', ' ');
+      editTodoInput.value = todo.title;
+      editDateInput.value = todo.date;
+      editTodoInput.classList.add('todoTitle');
+      editTodoInput.setAttribute('data-cy', 'todo-title-input');
+      editDateInput.setAttribute('data-cy', 'todo-date-input');
+      const todoTitleInput = document.getElementById('todoTitleInput');
+      let dateSelector = document.getElementById('chooseTodoDate');
+      todoTitleInput.setAttribute('data-cy', ' ');
+      dateSelector.setAttribute('data-cy', ' ');
+      todoTitleElement.replaceWith(editTodoInput);
+      todoContainer.appendChild(todoDateElement);
+      todoDateElement.replaceWith(editDateInput);
+      todoContainer.appendChild(todoBtnContainer);
+
+      editTodoBtn.replaceWith(saveBtn);
+      editDateInput.setAttribute('type', 'date');
+      saveBtn.textContent = 'Save';
+      saveBtn.addEventListener('click', function () {
+        const todoTitleElement = document.createElement('li');
+        const todoDateElement = document.createElement('span');
+        todoTitleElement.classList.add('todoTitle');
+        let todoEdit = editTodoInput.value;
+        let dateEdit = editDateInput.value;
+        editTodoInput.replaceWith(todoTitleElement);
+        editDateInput.replaceWith(todoDateElement);
+        saveBtn.replaceWith(editTodoBtn);
+        todoTitleElement.textContent = todoEdit;
+        todoDateElement.textContent = dateEdit;
+        todoTitleElement.appendChild(todoDateElement);
+        let newTodo = {
+          title: todoEdit,
+          date: dateEdit,
+        };
+        todos.push(newTodo);
+        sortItemsByDate(todos);
+        saveTodoToLS();
+        window.location.reload();
+      });
     });
   }
 }
@@ -97,5 +136,7 @@ function addTodo() {
   displayTodos();
   displayTodos();
   generateCalendar(currentYear, currentMonth);
+  sortItemsByDate(todos);
   saveTodoToLS();
+  window.location.reload();
 }
