@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/*  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
   margin: 0;
@@ -84,8 +84,8 @@ header {
   flex-wrap: wrap;
   gap: 1rem;
   padding: 50px 0px;
-}
-
+} 
+ */
 .inputContainer {
   display: flex;
   flex-direction: column;
@@ -153,14 +153,13 @@ aside {
   align-items: center;
   justify-content: space-between;
   padding: 40px;
-  width: 100%;
 }
 
 button {
   background-color: transparent;
   border: none;
   cursor: pointer;
-} */
+}
 
 .addNewTodo {
   display: flex;
