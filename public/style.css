@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
 header {
   height: 15svh;
   text-align: center;
@@ -200,6 +198,7 @@ button {
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  padding: 0;
 }
 
 .date {
