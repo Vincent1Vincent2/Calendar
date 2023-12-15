@@ -43,6 +43,7 @@ header {
   border-top-left-radius: 55px;
   background-color: rgb(230, 230, 107);
 }
+*/
 
 .activeTodo {
   list-style: none;
@@ -84,8 +85,8 @@ header {
   flex-wrap: wrap;
   gap: 1rem;
   padding: 50px 0px;
-} 
- */
+}
+
 .inputContainer {
   display: flex;
   flex-direction: column;
