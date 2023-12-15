@@ -4,9 +4,9 @@ header {
   height: 15svh;
   text-align: center;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
   font-size: clamp(1.5rem, -0.375rem + 6vw, 3rem);
   background-color: rgb(84, 114, 139);
   border-radius: 80px;
@@ -16,6 +16,7 @@ header {
 
 .currentMonthContainer {
   display: flex;
+  align-items: center;
   gap: 2rem;
 }
 
@@ -34,6 +35,7 @@ header {
   border-top-right-radius: 55px;
   border-top-left-radius: 55px;
   background-color: rgb(230, 230, 107);
+  margin: 0;
 }
 
 .activeTodo {
@@ -94,7 +96,6 @@ header {
   border-top-right-radius: 35px;
   height: 100px;
   resize: none;
-
   text-align: center;
 }
 
@@ -157,36 +158,6 @@ button {
   display: flex;
 }
 
-.content .text {
-  border: none;
-}
-
-.activeTodoContainer .task {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  margin-bottom: 1rem;
-}
-
-.activeTodoContainer .task .content {
-  flex: 1 1 0%;
-}
-
-.activeTodoContainer .task .content .text {
-  width: 100%;
-  display: block;
-}
-
-.activeTodoContainer .task .actions {
-  display: flex;
-}
-
-.task .actions button {
-  cursor: pointer;
-  margin: 0 0.5rem;
-  font-weight: 700;
-}
-
 .todoContainer {
   height: 100%;
   display: flex;
@@ -210,6 +181,7 @@ button {
   background-color: rgb(179, 82, 82);
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
+  margin: 0;
 }
 
 .daysName li {
@@ -297,14 +269,11 @@ button {
   aside {
     height: 100svh;
     width: 100%;
-    margin: 0;
-    padding: 0;
+
     align-items: normal;
   }
 
   .calenderContainer {
     width: 100%;
-    margin: 0;
-    padding: 0;
   }
 }
