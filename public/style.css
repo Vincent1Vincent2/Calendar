@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+* {
+  font-family: Poppins;
+}
+
 header {
   height: 15svh;
   text-align: center;
@@ -199,6 +203,8 @@ button {
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 .date {
