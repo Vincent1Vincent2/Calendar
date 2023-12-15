@@ -21,6 +21,7 @@ header {
   margin-bottom: 1rem;
   border: solid 2px;
 }
+*/
 
 .currentMonthContainer {
   display: flex;
@@ -43,7 +44,6 @@ header {
   border-top-left-radius: 55px;
   background-color: rgb(230, 230, 107);
 }
-*/
 
 .activeTodo {
   list-style: none;
