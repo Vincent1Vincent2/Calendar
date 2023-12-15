@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
   margin: 0;
@@ -135,9 +135,8 @@ header {
 
 main {
   height: calc(100svh - 190px);
+  width: 90%;
   display: flex;
-  gap: 1rem;
-  margin: 0.8em;
 }
 
 aside {
@@ -318,4 +317,4 @@ button {
     margin: 0;
     padding: 0;
   }
-}
+} */
