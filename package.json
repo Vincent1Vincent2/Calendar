@@ -3,7 +3,7 @@
   "description": "En inlämningsuppgift där de studerande bygger en kalenderapplikation i javascript.",
   "author": "Vincent",
   "scripts": {
-    "dev": "cd public && vite --open",
+    "dev": "cd public && vite --open"
   },
   "devDependencies": {
   }
