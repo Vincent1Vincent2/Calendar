@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "cd public && vite --open"
   },
-  "devDependencies": {
+  "dependencies": {
+    "vite": "^5.0.11"
   }
 }
