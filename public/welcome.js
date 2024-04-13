@@ -33,24 +33,8 @@ function updateTime() {
   let day = days[today.getDay()];
   let month = months[today.getMonth()];
   let date = addZeroIfNeeded(today.getDate());
-  let hours = addZeroIfNeeded(today.getHours());
-  let minutes = addZeroIfNeeded(today.getMinutes());
-  let seconds = addZeroIfNeeded(today.getSeconds());
 
-  let welcomeDate =
-    day +
-    ' ' +
-    date +
-    ' ' +
-    month +
-    ' ' +
-    currentYear +
-    ' ' +
-    hours +
-    ':' +
-    minutes +
-    ':' +
-    seconds;
+  let welcomeDate = day + ' ' + date + ' ' + month + ' ' + currentYear;
 
   const welcomeSegment = document.getElementById('welcomeSegment');
   welcomeSegment.innerHTML = welcomeDate;
