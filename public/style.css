@@ -4,6 +4,11 @@
   font-family: Poppins;
 }
 
+body {
+  margin: 2rem 2rem;
+  height: 90svh;
+}
+
 header {
   height: 15svh;
   text-align: center;
@@ -276,9 +281,8 @@ button {
   }
 
   aside {
-    height: 100svh;
+    height: 90svh;
     width: 100%;
-
     align-items: normal;
   }
 
