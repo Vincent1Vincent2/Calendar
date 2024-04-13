@@ -39,8 +39,9 @@ header {
 
 .welcomeSegment {
   text-align: center;
+
   font-size: clamp(1.5rem, -2.5rem + 5vw, 2.5rem);
-  padding: 25px 50px;
+  padding: 25px 70px;
   border-top-right-radius: 55px;
   border-top-left-radius: 55px;
   background-color: rgb(230, 230, 107);
@@ -281,7 +282,7 @@ button {
   }
 
   aside {
-    height: 90svh;
+    height: 80svh;
     width: 100%;
     align-items: normal;
   }
