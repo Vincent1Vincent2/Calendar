@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  font-family: Poppins;
+}
+
 header {
   height: 15svh;
   text-align: center;
@@ -49,7 +55,6 @@ header {
   margin-bottom: 1rem;
   border-radius: 10px;
   width: 25vw;
-  box-shadow: rgba(0, 0, 0, 0.26) -4px 3px 5px;
 }
 
 .todoTitle {
@@ -134,6 +139,7 @@ aside {
   height: calc(100svh - 190px);
   width: 30%;
   border: solid 2px;
+  border-bottom: none;
   border-radius: 55px;
   display: flex;
   flex-direction: column;
@@ -163,6 +169,9 @@ button {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .calenderContainer {
@@ -207,7 +216,7 @@ button {
   align-items: center;
   padding: 1.5rem 0.2rem;
   margin-top: 0.5rem;
-  font-size: clamp(1.5rem, -2.2625rem + 5vw, 2.5rem);
+  font-size: clamp(1.5rem, -2.2625rem + 5vw, 2rem);
   border-radius: 9rem;
   position: relative;
 }
